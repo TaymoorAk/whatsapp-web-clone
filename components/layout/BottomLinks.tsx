@@ -3,7 +3,7 @@ import { ArrowUpRight, Lock } from "lucide-react";
 export const BottomLinks = () => {
   return (
     <div className="text-center space-y-4">
-      <p className="text-gray-600 text-sm font-16">
+      <p className="text-gray-600 text-sm text-md">
         Don&apos;t have a WhatsApp account?{" "}
         <button className="text-black hover:text-emerald-700 underline decoration-emerald-600 underline-offset-4 cursor-pointer inline-flex items-center gap-1">
           Get started

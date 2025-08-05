@@ -5,15 +5,15 @@ import { Card, CardContent } from "../ui/card";
 export const DownloadBanner = () => {
   return (
     <Card
-      className=" border border-gray-200 shadow-sm w-full max-w-3xl"
+      className=" border border-gray-200 shadow-sm w-full max-w-3xl px-[24px] py-[24px]"
       style={{ border: "1px solid black" }}
     >
-      <CardContent className="flex items-center justify-between  px-10">
+      <CardContent className="flex items-center justify-between ">
         <div className="flex items-center gap-1">
           <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
             <svg
-              viewBox="0 0 72 54"
-              width="64"
+              viewBox="0 0 71 54"
+              width="200"
               preserveAspectRatio="xMidYMid meet"
               fill="none"
             >
@@ -69,11 +69,11 @@ export const DownloadBanner = () => {
               </defs>
             </svg>
           </div>
-          <div className="pl-2">
+          <div className="pl-4">
             <h3 className="font-18 text-gray-900">
               Download WhatsApp for Windows
             </h3>
-            <p className="text-sm  mt-1 font-16">
+            <p className="text-sm  mt-1 ">
               Make calls, share your screen and get a faster experience when you
               download the Windows app.
             </p>

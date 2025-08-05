@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import ReactFlagsSelect from "react-flags-select";
 import {
   Select,
   SelectContent,
@@ -36,6 +37,7 @@ const countryData: CountryData = {
 export default function PhoneLogin() {
   const [selectedCountry, setSelectedCountry] = useState("russia");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [selected, setSelected] = useState("");
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Allow only digits
@@ -53,7 +55,7 @@ export default function PhoneLogin() {
         <DownloadBanner />
 
         <Card className="w-full max-w-3xl border border-black shadow-sm">
-          <CardHeader className="text-center pb-4">
+          <CardHeader className="text-center">
             <CardTitle className="text-2xl font-normal text-gray-800">
               Enter phone number
             </CardTitle>
@@ -63,40 +65,21 @@ export default function PhoneLogin() {
           </CardHeader>
 
           <CardContent className="w-full flex justify-center">
-            <div className="space-y-5">
+            <div className="w-[310px] space-y-2">
               {/* Country Selector */}
-              <Select
-                defaultValue={selectedCountry}
-                onValueChange={(value) => {
-                  setSelectedCountry(value);
-                  setPhoneNumber(""); // reset number on country change
-                }}
-              >
-                <SelectTrigger className="w-full rounded-full border-black">
-                  <SelectValue>
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">
-                        {countryData[selectedCountry].flag}
-                      </span>
-                      <span>{countryData[selectedCountry].name}</span>
-                    </div>
-                  </SelectValue>
-                </SelectTrigger>
-                <SelectContent>
-                  {Object.entries(countryData).map(([key, { name, flag }]) => (
-                    <SelectItem key={key} value={key}>
-                      <div className="flex items-center gap-2">
-                        <span className="text-lg">{flag}</span>
-                        <span>{name}</span>
-                      </div>
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <div>
+                <ReactFlagsSelect
+                  selected={selected}
+                  onSelect={(code) => setSelected(code)}
+                  searchable
+                  id="react-flags-select"
+                  className="w-full"
+                />
+              </div>
 
               {/* Phone Input with Fixed Code */}
-              <div className="flex items-center border border-black rounded-full overflow-hidden h-9">
-                <span className=" px-4 text-sm font-medium  select-none">
+              <div className="flex items-center border border-black rounded-full overflow-hidden h-11">
+                <span className="px-4 text-sm font-medium select-none">
                   {currentCode}
                 </span>
                 <input
@@ -112,7 +95,7 @@ export default function PhoneLogin() {
               {/* Next Button */}
               <Link href="/verify-code">
                 <div className="flex justify-center pt-4">
-                  <Button className="bg-[#008069] hover:bg-emerald-700 text-white px-5 py-2 rounded-full">
+                  <Button className="bg-[#008069] hover:bg-emerald-700 text-white px-6 py-2 rounded-full">
                     Next
                   </Button>
                 </div>
@@ -120,10 +103,13 @@ export default function PhoneLogin() {
 
               {/* QR Code Login Link */}
               <div className="flex justify-center pt-4">
-                <button className="text-black hover:text-emerald-700 underline decoration-emerald-600 underline-offset-4 cursor-pointer inline-flex items-center gap-1">
+                <Link
+                  href="/"
+                  className="text-black hover:text-emerald-700 underline decoration-emerald-600 underline-offset-4 cursor-pointer inline-flex items-center gap-1"
+                >
                   Log in with QR code
                   <ChevronRight className="w-4 h-4" />
-                </button>
+                </Link>
               </div>
             </div>
           </CardContent>
