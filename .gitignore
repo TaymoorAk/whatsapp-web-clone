@@ -1,0 +1,54 @@
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Production
+.env
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+.pnpm
+.cache/
+.vite/
+turbo/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Testing
+coverage/
+*.lcov
+
+# Build output
+dist/
+
+# Local environments
+*.local
+
+# Misc
+*.swp
+*.bak
+
+# Optional: Ignore any lock files you don't want tracked (uncomment as needed)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
